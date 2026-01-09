@@ -1,0 +1,112 @@
+:root {
+    --bg-color: #FFFDF5; /* Cream */
+    --accent: #D4A373;   /* Soft Gold */
+    --text: #4A4A4A;
+    --paper: #FFF;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 { font-size: 3.5rem; color: var(--accent); margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; letter-spacing: 2px; }
+
+/* TIMELINE */
+.timeline {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--accent);
+    top: 0; bottom: 0; left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    opacity: 0; /* Hidden for animation */
+    transition: all 1s ease;
+}
+
+.timeline-item.visible { opacity: 1; }
+
+.left { left: 0; }
+.right { left: 50%; }
+
+.content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.content img { width: 100%; border-radius: 5px; margin-bottom: 10px; }
+
+/* LETTER */
+.letter-section {
+    padding: 80px 20px;
+    background-color: #F8F5F2;
+    display: flex;
+    justify-content: center;
+}
+
+.paper {
+    background-color: #FFF;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.handwritten {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* ANIMATIONS */
+.fade-in { animation: fadeIn 2s ease-in; }
+.delay { animation-delay: 1s; opacity: 0; animation-fill-mode: forwards; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+    .timeline::after { left: 31px; }
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .right { left: 0; }
+}
